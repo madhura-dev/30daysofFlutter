@@ -1,13 +1,5 @@
 class CatalogModel{
-  static final items = [Item(
-    id: 1,
-    name: "mi7",
-    desc: "note pro model",
-    price: 1000 ,
-    color: "#33505a",
-    image: "https://themrphone.com/tech/wp-content/uploads/2017/12/Untitled-72.png",
-  )];
-
+  static List<Item> items;
 }
 
 
@@ -21,4 +13,25 @@ class Item{
 
   Item({this.id, this.name, this.desc, this.price, this.color, this.image});
 
+  factory Item.fromMap(Map<String,dynamic> map){
+    return Item(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+
+    );
+
+  }
+  toMap() => {
+    "id": id,
+    "name": name,
+    "desc": desc,
+    "price": price,
+    "color": color,
+    "image": image,
+  };
 }
+
